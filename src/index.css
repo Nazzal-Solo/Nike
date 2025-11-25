@@ -1,0 +1,1193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 90, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 90, 0, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff5a00;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e55a00;
+}
+
+/* Custom range slider styles */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-track {
+  background: linear-gradient(to right, #374151, #4b5563);
+  height: 12px;
+  border-radius: 6px;
+  border: 2px solid #6b7280;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ff5a00;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 90, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #e04a00;
+  transform: scale(1.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 90, 0, 0.3);
+}
+
+.slider::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(255, 90, 0, 0.4);
+}
+
+.slider::-moz-range-track {
+  background: linear-gradient(to right, #374151, #4b5563);
+  height: 12px;
+  border-radius: 6px;
+  border: 2px solid #6b7280;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.slider::-moz-range-thumb {
+  background: #ff5a00;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 90, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+  background: #e04a00;
+  transform: scale(1.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 90, 0, 0.3);
+}
+
+.slider::-moz-range-thumb:active {
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(255, 90, 0, 0.4);
+}
+
+/* Smooth hover transitions for all interactive elements */
+button, a, input {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom focus styles */
+button:focus,
+input:focus {
+  outline: 2px solid #ff5a00;
+  outline-offset: 2px;
+}
+
+/* Enhanced hover effects */
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 90, 0, 0.4);
+}
+
+.hover-glow-volt:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 133, 0.4);
+}
+
+/* Nike-specific gradients */
+.nike-gradient {
+  background: linear-gradient(135deg, #ff5a00 0%, #ff8c00 100%);
+}
+
+.volt-gradient {
+  background: linear-gradient(135deg, #00ff85 0%, #00cc6a 100%);
+}
+
+.dark-gradient {
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+}
+
+/* Text gradients */
+.text-gradient-nike {
+  background: linear-gradient(135deg, #ff5a00, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-volt {
+  background: linear-gradient(135deg, #00ff85, #00cc6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .text-6xl {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+  
+  .text-8xl {
+    font-size: 4rem;
+    line-height: 1.1;
+  }
+  
+  .text-9xl {
+    font-size: 5rem;
+    line-height: 1.1;
+  }
+}
+
+/* Performance optimizations */
+img {
+  loading: lazy;
+}
+
+/* Improved text readability */
+p, span, div {
+  text-rendering: optimizeLegibility;
+}
+
+/* Parallax scrolling effects */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Custom shadows */
+.shadow-nike {
+  box-shadow: 0 0 30px rgba(255, 90, 0, 0.3);
+}
+
+.shadow-volt {
+  box-shadow: 0 0 30px rgba(0, 255, 133, 0.3);
+}
+
+.shadow-glass {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Selection styles */
+::selection {
+  background: rgba(255, 90, 0, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(255, 90, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Dark mode transitions */
+.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Light theme specific styles */
+.light .bg-nike-black {
+  background-color: #ffffff !important;
+}
+
+.light .bg-black {
+  background-color: #ffffff !important;
+}
+
+.light .bg-gray-900 {
+  background-color: #f9fafb !important;
+}
+
+.light .bg-gray-800 {
+  background-color: #f3f4f6 !important;
+}
+
+.light .bg-gray-700 {
+  background-color: #e5e7eb !important;
+}
+
+.light .text-nike-white {
+  color: #000000 !important;
+}
+
+.light .text-nike-gray-400 {
+  color: #6b7280 !important;
+}
+
+.light .text-nike-gray-300 {
+  color: #4b5563 !important;
+}
+
+.light .text-nike-gray-500 {
+  color: #6b7280 !important;
+}
+
+.light .text-nike-gray-600 {
+  color: #4b5563 !important;
+}
+
+.light .bg-nike-gray-900 {
+  background-color: #f9fafb;
+}
+
+.light .bg-nike-gray-800 {
+  background-color: #f3f4f6;
+}
+
+.light .bg-nike-gray-700 {
+  background-color: #e5e7eb;
+}
+
+.light .border-nike-gray-800 {
+  border-color: #e5e7eb;
+}
+
+.light .border-nike-gray-700 {
+  border-color: #d1d5db;
+}
+
+.light .glass {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .glass-card {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.light .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Fix specific text elements in light mode */
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+  color: #000000 !important;
+}
+
+.light p, .light span, .light div {
+  color: inherit;
+}
+
+.light .text-white {
+  color: #000000 !important;
+}
+
+.light .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+.light .text-gray-300 {
+  color: #4b5563 !important;
+}
+
+.light .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+/* Additional light theme overrides */
+.light .bg-black\/40 {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.light .bg-black\/95 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.light .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #f9fafb, #ffffff);
+}
+
+.light .bg-gradient-to-t {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.light .bg-gradient-to-r {
+  background: linear-gradient(to right, #f3f4f6, #f9fafb);
+}
+
+/* Ensure proper contrast in light mode */
+.light .text-nike-white {
+  color: #000000 !important;
+}
+
+.light .text-nike-gray-300 {
+  color: #4b5563 !important;
+}
+
+.light .text-nike-gray-400 {
+  color: #6b7280 !important;
+}
+
+/* Fix all text visibility in light mode */
+.light * {
+  color: inherit;
+}
+
+/* Override all white text in light mode */
+.light .text-white,
+.light .text-nike-white {
+  color: #000000 !important;
+}
+
+/* Ensure proper text contrast for all elements */
+.light body {
+  color: #000000;
+}
+
+.light .text-gray-100 {
+  color: #000000 !important;
+}
+
+.light .text-gray-200 {
+  color: #000000 !important;
+}
+
+/* Fix all text elements to be readable in light mode */
+.light .text-gray-300 {
+  color: #4b5563 !important;
+}
+
+.light .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+.light .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.light .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.light .text-gray-700 {
+  color: #374151 !important;
+}
+
+.light .text-gray-800 {
+  color: #1f2937 !important;
+}
+
+.light .text-gray-900 {
+  color: #111827 !important;
+}
+
+/* Ensure all headings are dark in light mode */
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+  color: #000000 !important;
+}
+
+/* Fix navigation text */
+.light nav a, .light nav button {
+  color: #000000 !important;
+}
+
+.light nav a:hover, .light nav button:hover {
+  color: #ff5a00 !important;
+}
+
+/* Fix paragraph and description text */
+.light p {
+  color: #4b5563 !important;
+}
+
+.light .text-nike-gray-300 {
+  color: #4b5563 !important;
+}
+
+.light .text-nike-gray-400 {
+  color: #6b7280 !important;
+}
+
+.light .text-black {
+  color: #000000 !important;
+}
+
+.light .text-gray-900 {
+  color: #111827 !important;
+}
+
+.light .text-gray-800 {
+  color: #1f2937 !important;
+}
+
+.light .text-gray-700 {
+  color: #374151 !important;
+}
+
+.light .text-gray-600 {
+  color: #4b5563 !important;
+}
+
+.light .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.light .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.light .text-gray-300 {
+  color: #d1d5db !important;
+}
+
+/* Fix button text in light mode */
+.light button {
+  color: inherit;
+}
+
+.light .bg-nike-orange {
+  color: #ffffff !important;
+}
+
+.light .bg-nike-volt {
+  color: #000000 !important;
+}
+
+/* Force all text to be dark in light mode */
+.light * {
+  color: #000000 !important;
+}
+
+.light .text-nike-white {
+  color: #000000 !important;
+}
+
+.light .text-white {
+  color: #000000 !important;
+}
+
+.light .text-gray-300 {
+  color: #000000 !important;
+}
+
+.light .text-gray-400 {
+  color: #000000 !important;
+}
+
+.light .text-gray-500 {
+  color: #000000 !important;
+}
+
+/* Specific fixes for navigation and description text */
+.light nav a,
+.light nav button {
+  color: #000000 !important;
+}
+
+.light .text-nike-gray-300 {
+  color: #000000 !important;
+}
+
+.light .text-nike-gray-400 {
+  color: #000000 !important;
+}
+
+.light .text-nike-gray-500 {
+  color: #000000 !important;
+}
+
+/* Fix all gray text classes */
+.light .text-gray-100,
+.light .text-gray-200,
+.light .text-gray-300,
+.light .text-gray-400,
+.light .text-gray-500,
+.light .text-gray-600 {
+  color: #000000 !important;
+}
+
+/* Ensure buttons have proper contrast */
+.light .bg-nike-orange {
+  background-color: #ff5a00 !important;
+  color: #ffffff !important;
+}
+
+.light .bg-nike-volt {
+  background-color: #00ff85 !important;
+  color: #000000 !important;
+}
+
+/* Fix specific elements that might have poor contrast */
+.light .hero-text {
+  color: #000000 !important;
+}
+
+.light .nav-text {
+  color: #000000 !important;
+}
+
+.light .description-text {
+  color: #000000 !important;
+}
+
+/* Override all possible text color classes in light mode */
+.light .text-slate-300,
+.light .text-slate-400,
+.light .text-slate-500,
+.light .text-zinc-300,
+.light .text-zinc-400,
+.light .text-zinc-500,
+.light .text-neutral-300,
+.light .text-neutral-400,
+.light .text-neutral-500 {
+  color: #000000 !important;
+}
+
+/* Force all text to be black in light mode */
+.light p,
+.light span,
+.light div,
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6,
+.light a,
+.light button {
+  color: #000000 !important;
+}
+
+/* Exception for buttons with colored backgrounds */
+.light .bg-nike-orange,
+.light .bg-nike-volt,
+.light .bg-orange-500,
+.light .bg-green-500 {
+  color: #ffffff !important;
+}
+
+.light .bg-nike-volt {
+  color: #000000 !important;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Final override for light mode text visibility */
+.light * {
+  color: #000000 !important;
+}
+
+.light .text-nike-white,
+.light .text-white,
+.light .text-gray-300,
+.light .text-gray-400,
+.light .text-gray-500,
+.light .text-nike-gray-300,
+.light .text-nike-gray-400,
+.light .text-nike-gray-500 {
+  color: #000000 !important;
+}
+
+/* Ensure navigation is always visible - WHITE text for dark background */
+.light nav * {
+  color: #ffffff !important;
+}
+
+.light nav a:hover,
+.light nav button:hover {
+  color: #ff5a00 !important;
+}
+
+/* Navigation specific overrides for light mode */
+.light nav .text-nike-white,
+.light nav .text-white,
+.light nav .text-gray-300,
+.light nav .text-gray-400,
+.light nav .text-gray-500 {
+  color: #ffffff !important;
+}
+
+/* Hero section text should be white in light mode due to dark background */
+.light #home .text-nike-white,
+.light #home .text-white,
+.light #home .text-gray-300,
+.light #home .text-gray-400 {
+  color: #ffffff !important;
+}
+
+/* Hero description text should be white */
+.light #home p {
+  color: #ffffff !important;
+}
+
+/* Force all paragraph and description text to be black EXCEPT hero section */
+.light p {
+  color: #000000 !important;
+}
+
+/* Hero section overrides - white text for dark background */
+.light #home p {
+  color: #ffffff !important;
+}
+
+.light #home .text-nike-gray-300 {
+  color: #ffffff !important;
+}
+
+.light #home .text-nike-gray-400 {
+  color: #ffffff !important;
+}
+
+.light .text-xl,
+.light .text-lg,
+.light .text-base,
+.light .text-sm {
+  color: #000000 !important;
+}
+
+/* Light mode overrides for filter panel */
+.light .fixed.right-0 {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff) !important;
+  border-left-color: #ff5a00 !important;
+}
+
+.light .bg-nike-gray-800\/50,
+.light .bg-nike-gray-800 {
+  background-color: #f1f3f4 !important;
+  border-color: #e5e7eb !important;
+}
+
+.light .bg-nike-gray-700 {
+  background-color: #e5e7eb !important;
+}
+
+.light .text-nike-white {
+  color: #000000 !important;
+}
+
+.light .text-nike-gray-300,
+.light .text-nike-gray-400 {
+  color: #374151 !important;
+}
+
+.light .border-nike-gray-600 {
+  border-color: #9ca3af !important;
+}
+
+.light .hover\:bg-nike-gray-700\/50:hover {
+  background-color: #e5e7eb !important;
+}
+
+.light .hover\:bg-nike-gray-600:hover {
+  background-color: #d1d5db !important;
+}
+
+.light .hover\:bg-nike-gray-800\/50:hover {
+  background-color: #f1f3f4 !important;
+}
+
+/* Light mode for filter buttons */
+.light .bg-nike-gray-800\/50 {
+  background-color: #f8f9fa !important;
+}
+
+.light .bg-gradient-to-r.from-nike-orange\/10.to-nike-volt\/10 {
+  background: linear-gradient(to right, #fff3e0, #f0fdf4) !important;
+  border-color: #ff5a00 !important;
+}
+
+/* Light mode for sliders */
+.light .slider::-webkit-slider-track {
+  background: linear-gradient(to right, #d1d5db, #e5e7eb) !important;
+  border: 2px solid #6b7280 !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light .slider::-webkit-slider-thumb {
+  background: #ff5a00 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 90, 0, 0.2) !important;
+}
+
+.light .slider::-webkit-slider-thumb:hover {
+  background: #e04a00 !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 90, 0, 0.3) !important;
+}
+
+.light .slider::-webkit-slider-thumb:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(255, 90, 0, 0.4) !important;
+}
+
+.light .slider::-moz-range-track {
+  background: linear-gradient(to right, #d1d5db, #e5e7eb) !important;
+  border: 2px solid #6b7280 !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light .slider::-moz-range-thumb {
+  background: #ff5a00 !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 90, 0, 0.2) !important;
+}
+
+.light .slider::-moz-range-thumb:hover {
+  background: #e04a00 !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 90, 0, 0.3) !important;
+}
+
+.light .slider::-moz-range-thumb:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 4px rgba(255, 90, 0, 0.4) !important;
+}
+
+/* Additional light mode overrides for filter panel elements */
+.light .bg-gradient-to-b.from-nike-gray-900.to-nike-black {
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff) !important;
+}
+
+.light .shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.light .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .shadow-nike-orange\/30 {
+  box-shadow: 0 10px 15px -3px rgba(255, 90, 0, 0.3) !important;
+}
+
+.light .shadow-nike-volt\/30 {
+  box-shadow: 0 10px 15px -3px rgba(0, 255, 133, 0.3) !important;
+}
+
+/* Light mode for filter section headers */
+.light .w-1.h-6.bg-nike-orange {
+  background-color: #ff5a00 !important;
+}
+
+.light .w-1.h-6.bg-nike-volt {
+  background-color: #00ff85 !important;
+}
+
+.light .w-1.h-6.bg-nike-white {
+  background-color: #000000 !important;
+}
+
+.light .w-1.h-6.bg-gradient-to-b {
+  background: linear-gradient(to bottom, #ff5a00, #00ff85) !important;
+}
+
+/* Light mode for form elements */
+.light input[type="radio"],
+.light input[type="checkbox"] {
+  background-color: #ffffff !important;
+  border-color: #9ca3af !important;
+}
+
+.light input[type="radio"]:checked,
+.light input[type="checkbox"]:checked {
+  background-color: #ff5a00 !important;
+  border-color: #ff5a00 !important;
+}
+
+.light select {
+  background-color: #ffffff !important;
+  border-color: #9ca3af !important;
+  color: #000000 !important;
+}
+
+.light select:focus {
+  border-color: #ff5a00 !important;
+  box-shadow: 0 0 0 2px rgba(255, 90, 0, 0.2) !important;
+}
+
+/* Light mode for buttons */
+.light .bg-nike-gray-800 {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+.light .hover\:bg-nike-gray-700:hover {
+  background-color: #e5e7eb !important;
+}
+
+.light .bg-gradient-to-r.from-nike-orange.to-nike-volt {
+  background: linear-gradient(to right, #ff5a00, #00ff85) !important;
+  color: #ffffff !important;
+}
+
+.light .hover\:from-nike-orange\/90.hover\:to-nike-volt\/90:hover {
+  background: linear-gradient(to right, #e04a00, #00e673) !important;
+}
+
+/* Light mode for filter backdrop */
+.light .fixed.inset-0.bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Light mode for filter panel specific elements */
+.light .p-2.bg-nike-orange\/20 {
+  background-color: rgba(255, 90, 0, 0.1) !important;
+}
+
+.light .p-1.bg-nike-orange\/20 {
+  background-color: rgba(255, 90, 0, 0.1) !important;
+}
+
+.light .w-2.h-2.bg-nike-orange {
+  background-color: #ff5a00 !important;
+}
+
+.light .animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+}
+
+/* Light mode for color swatches */
+.light .w-4.h-4.rounded-full {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Light mode for emoji and special characters */
+.light .text-2xl {
+  color: #000000 !important;
+}
+
+/* Light mode for focus states */
+.light .focus\:ring-2:focus {
+  box-shadow: 0 0 0 2px rgba(255, 90, 0, 0.2) !important;
+}
+
+.light .focus\:ring-nike-orange:focus {
+  box-shadow: 0 0 0 2px rgba(255, 90, 0, 0.2) !important;
+}
+
+.light .focus\:border-nike-orange:focus {
+  border-color: #ff5a00 !important;
+}
+
+/* Light mode navbar specific overrides */
+.light nav {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.light nav .text-nike-white {
+  color: #000000 !important;
+}
+
+.light nav .text-nike-gray-300,
+.light nav .text-nike-gray-400 {
+  color: #374151 !important;
+}
+
+.light nav .bg-nike-gray-800,
+.light nav .bg-nike-gray-800\/50 {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+.light nav .hover\:bg-nike-gray-700:hover,
+.light nav .hover\:bg-nike-gray-800\/50:hover {
+  background-color: #e5e7eb !important;
+}
+
+.light nav .border-nike-gray-700 {
+  border-color: #d1d5db !important;
+}
+
+.light nav .border-nike-gray-600 {
+  border-color: #9ca3af !important;
+}
+
+/* Light mode navbar buttons and icons */
+.light nav button {
+  color: #000000 !important;
+}
+
+.light nav .text-nike-orange {
+  color: #ff5a00 !important;
+}
+
+.light nav .text-nike-volt {
+  color: #00ff85 !important;
+}
+
+/* Light mode navbar glassmorphism */
+.light nav .backdrop-blur-md {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.light nav .backdrop-blur-sm {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Override the conflicting white text rule for navbar */
+.light nav * {
+  color: #000000 !important;
+}
+
+/* Keep hero section white text on dark background */
+.light #home .text-nike-white,
+.light #home p {
+  color: #ffffff !important;
+}
+
+/* Light mode navigation links */
+.light nav a {
+  color: #000000 !important;
+}
+
+.light nav a:hover {
+  color: #ff5a00 !important;
+}
+
+.light nav .text-nike-gray-300:hover {
+  color: #ff5a00 !important;
+}
+
+/* Light mode navigation active states */
+.light nav .bg-nike-orange {
+  background-color: #ff5a00 !important;
+  color: #ffffff !important;
+}
+
+.light nav .border-nike-orange {
+  border-color: #ff5a00 !important;
+}
+
+.light nav .hover\:border-nike-orange:hover {
+  border-color: #ff5a00 !important;
+}
+
+/* Light mode navigation icons */
+.light nav .w-5,
+.light nav .w-6,
+.light nav .h-5,
+.light nav .h-6 {
+  color: #000000 !important;
+}
+
+.light nav .group-hover\:text-nike-orange:hover {
+  color: #ff5a00 !important;
+}
+
+/* Light mode navigation mobile menu */
+.light nav .md\:hidden {
+  color: #000000 !important;
+}
+
+.light nav .md\:hidden button {
+  color: #000000 !important;
+}
