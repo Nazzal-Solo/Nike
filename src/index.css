@@ -86,6 +86,36 @@ body {
   font-family: 'Noto Sans Arabic', 'Inter', 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
 }
 
+/* Light mode footer */
+.light footer,
+.light footer.bg-nike-black {
+  background-color: #f9fafb !important;
+  border-top-color: #e5e7eb !important;
+}
+
+.light footer .border-nike-gray-800\/50 {
+  border-top-color: #e5e7eb !important;
+}
+
+/* Light mode buttons and interactive elements */
+.light button.bg-nike-gray-800\/60,
+.light button.bg-nike-gray-800\/50 {
+  background-color: #f3f4f6 !important;
+  color: #000000 !important;
+}
+
+.light button.bg-nike-gray-800\/60:hover,
+.light button.bg-nike-gray-800\/50:hover {
+  background-color: #e5e7eb !important;
+}
+
+/* Light mode backdrop blur adjustments */
+.light .backdrop-blur-xl,
+.light .backdrop-blur-md,
+.light .backdrop-blur-sm {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
 /* Glassmorphism Effects */
 .glass {
   background: rgba(255, 255, 255, 0.1);
@@ -861,9 +891,9 @@ p, span, div {
   color: #000000 !important;
 }
 
-/* Ensure navigation is always visible - WHITE text for dark background */
+/* Navigation text in light mode - should be dark */
 .light nav * {
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 .light nav a:hover,
@@ -877,7 +907,11 @@ p, span, div {
 .light nav .text-gray-300,
 .light nav .text-gray-400,
 .light nav .text-gray-500 {
-  color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.light nav .text-nike-white\/80 {
+  color: rgba(0, 0, 0, 0.8) !important;
 }
 
 /* Hero section text should be white in light mode due to dark background */
@@ -916,6 +950,67 @@ p, span, div {
 .light .text-base,
 .light .text-sm {
   color: #000000 !important;
+}
+
+/* Light mode section backgrounds */
+.light section {
+  background-color: #ffffff !important;
+}
+
+/* Light mode gradient overrides */
+.light .bg-gradient-to-b.from-nike-black,
+.light .bg-gradient-to-b.from-nike-black.via-nike-black,
+.light .bg-gradient-to-b.from-nike-black.via-nike-black.to-nike-gray-900 {
+  background: linear-gradient(to bottom, #ffffff, #f9fafb, #f3f4f6) !important;
+}
+
+.light .bg-gradient-to-b.from-nike-gray-900,
+.light .bg-gradient-to-b.from-nike-gray-900.via-nike-black,
+.light .bg-gradient-to-b.from-nike-gray-900.via-nike-black.to-nike-black,
+.light .bg-gradient-to-b.from-nike-black.via-nike-gray-900 {
+  background: linear-gradient(to bottom, #f9fafb, #ffffff, #f9fafb) !important;
+}
+
+.light .bg-gradient-to-b.from-nike-black.via-nike-gray-900.to-nike-black {
+  background: linear-gradient(to bottom, #ffffff, #f9fafb, #f3f4f6) !important;
+}
+
+/* Light mode navigation */
+.light nav {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom-color: #e5e7eb !important;
+}
+
+.light nav.bg-black\/95,
+.light nav.bg-black\/95.backdrop-blur-xl {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Light mode hero section */
+.light #home {
+  background-color: #f9fafb !important;
+}
+
+.light #home .bg-black\/20,
+.light #home .bg-black\/40,
+.light #home .bg-black\/50,
+.light #home .bg-black\/80 {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light #home .bg-gradient-to-b.from-black\/40.via-black\/50.to-black\/80 {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Light mode product cards */
+.light .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Light mode overrides for filter panel */

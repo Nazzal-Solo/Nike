@@ -527,7 +527,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32"
     >
       {/* Enhanced Background with Parallax */}
       <div className="absolute inset-0">
@@ -549,7 +549,7 @@ const HeroSection: React.FC = () => {
 
       {/* Hero Content */}
       <motion.div
-        className="relative z-20 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32"
+        className="relative z-20 text-center max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 mt-20"
         style={{ y: y2 }}
       >
         <motion.div
@@ -558,7 +558,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div
-            className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 text-nike-white tracking-tight"
+            className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 tracking-tight"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{
@@ -1756,34 +1756,42 @@ const Footer: React.FC = () => {
   );
 };
 
+// App Content Component (needs theme context)
+const AppContent: React.FC = () => {
+  const [showFilters, setShowFilters] = useState(false);
+  const { isDark } = useTheme();
+
+  return (
+    <div className={`${isDark ? 'bg-nike-black' : 'bg-white'} text-nike-white overflow-x-hidden transition-colors duration-300 min-h-screen`}>
+      <Navigation
+        showFilters={showFilters}
+        setShowFilters={setShowFilters}
+      />
+      <HeroSection />
+      <ProductsSection
+        showFilters={showFilters}
+        setShowFilters={setShowFilters}
+      />
+      <InnovationSection />
+      <AthletesSection />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
+
+      <ShoppingCart />
+      <BackToTop />
+    </div>
+  );
+};
+
 // Main App Component
 const App: React.FC = () => {
-  const [showFilters, setShowFilters] = useState(false);
-
   return (
     <LanguageProvider>
       <ThemeProvider>
         <CartProvider>
           <SearchProvider>
-            <div className="bg-nike-black text-nike-white overflow-x-hidden transition-colors duration-300 min-h-screen">
-              <Navigation
-                showFilters={showFilters}
-                setShowFilters={setShowFilters}
-              />
-              <HeroSection />
-              <ProductsSection
-                showFilters={showFilters}
-                setShowFilters={setShowFilters}
-              />
-              <InnovationSection />
-              <AthletesSection />
-              <AboutSection />
-              <ContactSection />
-              <Footer />
-
-              <ShoppingCart />
-              <BackToTop />
-            </div>
+            <AppContent />
           </SearchProvider>
         </CartProvider>
       </ThemeProvider>
